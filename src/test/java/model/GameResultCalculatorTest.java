@@ -15,7 +15,7 @@ class GameResultCalculatorTest {
             "425,789,0,0"
     })
     @DisplayName("스트라이크/볼 개수를 올바르게 계산합니다.")
-    @ParameterizedTest
+    @ParameterizedTest(name = "{displayName} [{arguments}]")
     void calculate(int target, int guess, int strikeCount, int ballCount) {
         // given, when
         GameResult result = GameResultCalculator.calculate(BaseballNumber.of(target), BaseballNumber.of(guess));

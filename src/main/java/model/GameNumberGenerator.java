@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import static model.BaseballNumber.VALID_LENGTH;
+
 public class GameNumberGenerator {
 
     public static int generate() {
@@ -15,6 +17,11 @@ public class GameNumberGenerator {
 
         Collections.shuffle(digits, new Random());
 
-        return digits.get(0) * 100 + digits.get(1) * 10 + digits.get(2);
+        int num = 0;
+        for (int i = 0; i < VALID_LENGTH; i++) {
+            num *= 10;
+            num += digits.get(i);
+        }
+        return num;
     }
 }

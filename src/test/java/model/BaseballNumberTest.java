@@ -23,7 +23,7 @@ class BaseballNumberTest {
 
     @ValueSource(ints = {-1, 1})
     @DisplayName("VALID_LENGTH와 다른 길이의 숫자로 생성할 경우 예외가 발생한다.")
-    @ParameterizedTest
+    @ParameterizedTest(name = "{displayName} [{arguments}]")
     void createWithInvalidLength_throwsException(int lengthDiff) {
         // given
         int newLength = VALID_LENGTH + lengthDiff;
