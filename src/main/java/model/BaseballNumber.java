@@ -25,6 +25,10 @@ public class BaseballNumber {
         if (sameDigitExists()) {
             throw new GameException("중복된 숫자가 존재합니다.");
         }
+
+        if (zeroExists()) {
+            throw new GameException("0이 존재합니다.");
+        }
     }
 
     private boolean sameDigitExists() {
@@ -33,6 +37,10 @@ public class BaseballNumber {
             s.add(value.charAt(i));
         }
         return s.size() != value.length();
+    }
+
+    private boolean zeroExists() {
+        return value.contains("0");
     }
 
     public static BaseballNumber of(int num) {
